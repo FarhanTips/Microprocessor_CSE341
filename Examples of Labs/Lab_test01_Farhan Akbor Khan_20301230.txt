@@ -1,0 +1,24 @@
+
+Name: Farhan Akbor Khan
+ID: 20301230
+Section: 08
+Lab Test: 01
+Date: 16-10-2022
+
+
+;TASK 1
+MOV AL , 03H
+MOV BL, 05H
+
+ADD AL, 2
+SUB BL, 2    
+
+
+;TASK2
+
+MOV AL, 0F3H
+MOV BL, 0D1H
+MOV CL , 0C2H
+
+MUL BL
+SUB AX, CX

@@ -1,0 +1,59 @@
+; MOV DESTINATION, SOURCE
+
+;MOV AX, 0A5H                                                                                                                                                   
+
+;MOV BX, 0B3H                 
+   
+;   SYNTAX TO ADD
+;     ADD DESTINATION, SOURCE
+;ADD BX,AX  ; BX= BX + AX
+
+;SUB AX, BX ; AX=AX - BX         
+
+;INC AX
+
+;DEC AX       
+
+
+;MOV BX,5
+;INC AX
+;DEC AX
+
+
+
+;MOV AX, 1010B
+;NEG AX
+
+
+
+;MOV AL, 032H
+;MOV BL, 0A1H
+
+;MUL BL            
+
+
+
+;MOV AL, 0A1H
+;MOV BH, 0B2H
+
+;MUL BH 
+
+
+
+
+;TASK 1
+MOV AL , 03H
+MOV BL, 05H
+
+ADD AL, 2
+SUB BL, 2    
+
+
+;TASK2
+
+MOV AL. 0F3H
+MOV BL, 0D1H
+MOV CL , 0C2H
+
+MUL BL
+SUB AL, CL

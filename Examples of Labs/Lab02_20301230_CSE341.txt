@@ -1,0 +1,92 @@
+;Name: Farhan Akbor Khan
+;ID: 20301230
+;section: 08
+
+;TASK 1
+
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA
+NUM DB 48  
+MSG DB "HELLO WORLD!$"
+
+.CODE
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+ 
+; enter your code here
+
+MOV AH,1
+INT 21H
+MOV DL,AL    
+
+MOV AH,1
+INT 21H 
+MOV CL,AL  
+
+MOV AH,1
+INT 21H 
+MOV CH, AL 
+
+PRINTN
+MOV AH,2
+INT 21H 
+PRINTN
+MOV DL,CL
+INT 21H 
+PRINTN
+MOV DL, CH
+INT 21H
+;exit to DOS
+               
+MOV AX,4C00H
+INT 21H
+
+MAIN ENDP
+    END MAIN
+
+
+
+;TASK 2
+
+.DATA
+NUM DB 48  
+MSG DB "HELLO WORLD!$"
+
+.CODE
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+ 
+; enter your code here
+
+MOV AH,1
+INT 21H
+
+PRINTN
+MOV BL,AL  
+SUB BL, 17 
+MOV DL, 49
+MOV AH,2 
+INT 21H 
+
+MOV DL, BL
+MOV AH,2
+INT 21H
+;exit to DOS
+               
+MOV AX,4C00H
+INT 21H
+
+MAIN ENDP
+    END MAIN

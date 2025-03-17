@@ -1,0 +1,33 @@
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+.STACK 100H
+
+.DATA  
+C DW ?
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+ 
+; enter your code here
+
+MOV CX, 148D
+MOV DX, 1D
+MOV BX, 0D
+START:
+ADD BX, DX
+INC DX
+INC DX
+INC DX
+CMP DX, CX
+JG EXIT
+JMP START
+
+EXIT: 
+MOV C, BX
+MOV AX, C          
+
+MAIN ENDP
+    END MAIN

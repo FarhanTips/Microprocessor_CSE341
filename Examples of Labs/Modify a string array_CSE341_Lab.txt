@@ -1,0 +1,51 @@
+
+
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA
+a Db "hello$"
+b db 5 dup(?)
+.CODE
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+ 
+; enter your code here 
+
+
+
+MOV CX,5
+LEA SI, a
+START1:
+cmp si, 2h
+je process:
+INC SI 
+LOOP START1  
+
+process:
+mov ah, 1
+int 21h
+mov [si], al
+
+MOV CX,5
+LEA SI, a
+START:
+MOV DL, [SI]
+INC SI 
+MOV AH, 2
+INT 21H
+LOOP START
+jmp exit 
+
+;exit to DOS
+EXIT:               
+MOV AX,4C00H
+INT 21H
+
+MAIN ENDP
+    END MAIN

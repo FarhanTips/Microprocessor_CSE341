@@ -1,0 +1,66 @@
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+ 
+.STACK 100H
+
+.DATA
+a db 1,2,3,4,5 
+C DB "LENGTH OF YOUR NAME: $"
+E DB "WRITE YOUR NAME: $"
+F DB "YOUR NAME IS: $"
+b dB  ""
+.CODE
+MAIN PROC
+
+;iniitialize DS
+
+MOV AX,@DATA
+MOV DS,AX
+LEA DX, C 
+MOV AH, 9
+INT 21H
+mov ah,1
+int 21h
+PRINTN
+mov bl, al
+SUB BL, 30H
+; enter your code here
+
+LEA DX, E 
+MOV AH, 9
+INT 21H
+
+
+MOV CX, BX
+LEA SI, b
+START:      
+MOV AH, 1
+INT 21H
+MOV [SI], AL
+INC SI
+LOOP START
+
+
+
+PRINTN
+LEA DX, F 
+MOV AH, 9
+INT 21H
+
+MOV CX, BX
+LEA SI, b
+START2: 
+     
+MOV DL, [SI]
+MOV AH, 2
+INT 21H
+INC SI
+LOOP START2
+
+;exit to DOS
+               
+MOV AX,4C00H
+INT 21H
+
+MAIN ENDP
+    END MAIN
